@@ -2,11 +2,8 @@
 FORMATTING PROBLEM SET (12 PTS)
 '''
 
-# put your name HERE
-# https://github.com/fwparkercode/Programming2_SP19
-# New change
-
 # Lindsay Carlin
+# https://github.com/fwparkercode/Programming2_SP19
 
 '''
 PROBLEM 1 (2pts)
@@ -21,7 +18,7 @@ You get 8 out of 9 on a quiz.
 Print 8/9 using {}.format() so that it appears as 89%
 '''
 
-print("{:.2%}".format(8/9))
+print("{:.0%}".format(8/9))
 
 '''
 PROBLEM 3 (3pts)
@@ -47,8 +44,8 @@ You should only have two double quotes in each print statement.
 
 score = 41237
 highscore = 1023407
-# print("Score: {:23}".format(score))
-# print("High score: {:23}".format(highscore))
+print("Score:{:>14}".format(score))
+print("High score:{:>9}".format(highscore))
 
 '''
 PROBLEM 4 (5 pts) 
@@ -78,4 +75,4 @@ Use print formatting to EXACTLY match the following output:
 
 for i in range(20):
     a = 1/(i + 1)
-    print("{:.4f}".format(a))
+    print("1/" + str(1+i) + " = " + "{:.3}".format(a))
