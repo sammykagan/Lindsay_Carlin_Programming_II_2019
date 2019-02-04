@@ -44,8 +44,8 @@ You should only have two double quotes in each print statement.
 
 score = 41237
 highscore = 1023407
-print("Score:{:>14}".format(score))
-print("High score:{:>9}".format(highscore))
+print("Score:{:>16,}".format(score))
+print("High score:{:>11,}".format(highscore))
 
 '''
 PROBLEM 4 (5 pts) 
