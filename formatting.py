@@ -1,9 +1,13 @@
 #FORMATTING PROBLEM SET (12 PTS)
 
+# Lindsay Carlin
+
 '''
 PROBLEM 1 (2pts)
 Use {}.format() to print 0.000321192 in scientific notation to two decimals
 '''
+
+print("{:.2e}".format(0.000321192))
 
 '''
 PROBLEM 2 (2pts)
@@ -11,6 +15,7 @@ You get 8 out of 9 on a quiz.
 Print 8/9 using {}.format() so that it appears as 89%
 '''
 
+print("{:.2%}".format(8/9))
 
 '''
 PROBLEM 3 (3pts)
@@ -34,6 +39,10 @@ Do not use any concatenation in your code (no plus signs).
 You should only have two double quotes in each print statement.
 '''
 
+score = 41237
+highscore = 1023407
+# print("Score: {:23}".format(score))
+# print("High score: {:23}".format(highscore))
 
 '''
 PROBLEM 4 (5 pts) 
@@ -60,3 +69,7 @@ Use print formatting to EXACTLY match the following output:
 1/19 = 0.0526
 1/20 = 0.05
 '''
+
+for i in range(20):
+    a = 1/(i + 1)
+    print("{:.4f}".format(a))
