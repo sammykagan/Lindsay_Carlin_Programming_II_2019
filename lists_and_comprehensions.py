@@ -47,15 +47,18 @@ for suit in suits:
         card_list.append(num + " of " + suit)
 print(card_list)
 
-'''
 shuffled_cards = []
-def __shuffle__:
-    for i in range(len(card_list)):
-'''
+def shuffle():
+    for card in card_list:
+        shuffled_cards.append(card_list[random.randrange(52)])
+
+shuffle()
+print(shuffled_cards[0:5])
+print(shuffled_cards[5:])
 
 
 # PROBLEM 4 (Illinois Pick 4 - 10pts)
-# Lotteries are known to give awful odds of winning, and incredibly low expected returns on your inveestment.
+# Lotteries are known to give awful odds of winning, and incredibly low expected returns on your investment.
 # You will buy 10000 Illinois Pick 4 tickets in a simulation.
 # Make a 2d lists of your picks.  Each number is a random 0 to 9.
 # After you have made a list of 10000 lists (each 4 long), you will draw the official numbers
@@ -66,3 +69,11 @@ def __shuffle__:
 ticket_list = []
 for i in range(10000):
     ticket_list.append([random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)])
+print(ticket_list)
+
+draw = [random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)]
+print(draw)
+if draw in ticket_list:
+    print("You win $5000!")
+else:
+    print("You lose :(")
