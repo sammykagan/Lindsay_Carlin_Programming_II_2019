@@ -71,34 +71,41 @@ HANGMANPICS = ['''
       |
 =========''']
 
-
-word_list = ["Sammy", "Nicky", "Ethan", "Benji", "Lindsay", "MrLee"]
-word = word_list[random.randrange(5)]
-used_letters = []
+word_list = ["two", "three", "four", "eleven"]
+word = word_list[random.randrange(4)]
 correct_guesses = 0
+word_letters = []
 guessed_letters = []
 incorrect_guesses = 0
 hangman_pic = 0
-print(HANGMANPICS[hangman_pic])
-for i in range(len(word)):  # need to be all on same line
-    print("_ ", end = "")
-for i in range(27):
+done = False
+for i in range(len(word)):
+    print("_ ", end="")
+while not done:
+    print(HANGMANPICS[hangman_pic])
     guess = input("\nYour guess: ")
-    if guess in guessed_letters:
+    if guess.lower() in guessed_letters:
         print("You already guessed that, silly!")
     guessed_letters.append(guess)
-    if guess in word:
+    if guess.lower() in word.lower():
         correct_guesses += 1
-        print([guess])
+        word_letters.append(guess.lower())
+        for letter in word.lower():
+            if letter in word_letters:
+                print(letter + " ", end = "")
+            else:
+                print("_ ", end = "")
     else:
         incorrect_guesses += 1
         hangman_pic += 1
         print(HANGMANPICS[hangman_pic])
     if incorrect_guesses > 6:
         print("You lost!")
-        # end program
+        print("The word was ", + word)
+        done = True
     if correct_guesses == len(word):
-        print("You won! Want to play again?")
+        done = True
+        print("\nYou won! Want to play again?")
 
 
 # if the guess is correct, add it to the word in the corresponding blank
