@@ -53,8 +53,8 @@ def shuffle():
         shuffled_cards.append(card_list[random.randrange(52)])
 
 shuffle()
-print(shuffled_cards[0:5])
-print(shuffled_cards[5:])
+print("Your hand is", shuffled_cards[0:5])
+print("The rest of the deck is", shuffled_cards[5:])
 
 
 # PROBLEM 4 (Illinois Pick 4 - 10pts)
@@ -69,11 +69,11 @@ print(shuffled_cards[5:])
 ticket_list = []
 for i in range(10000):
     ticket_list.append([random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)])
-print(ticket_list)
+print("Your ticket numbers are", ticket_list)
 
 draw = [random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)]
-print(draw)
+print("The draw is", draw)
 if draw in ticket_list:
-    print("You win $5000!")
+    print("Your numbers were drawn. You win $5000!")
 else:
     print("You lose :(")
