@@ -71,9 +71,8 @@ HANGMANPICS = ['''
       |
 =========''']
 
-word_list = ["two", "three", "four", "eleven"]
+word_list = ["python", "javascript", "swift", "ada", "ruby", "html", "css"]
 word = word_list[random.randrange(4)]
-correct_guesses = 0
 word_letters = []
 guessed_letters = []
 incorrect_guesses = 0
@@ -82,35 +81,32 @@ done = False
 for i in range(len(word)):
     print("_ ", end="")
 while not done:
+    correct_guesses = 0
     print(HANGMANPICS[hangman_pic])
     guess = input("\nYour guess: ")
     if guess.lower() in guessed_letters:
         print("You already guessed that, silly!")
-    guessed_letters.append(guess)
+    if guess.lower() not in guessed_letters:
+        guessed_letters.append(guess)
     if guess.lower() in word.lower():
-        correct_guesses += 1
+        if guess.lower() not in guessed_letters:
+            correct_guesses += 1
         word_letters.append(guess.lower())
         for letter in word.lower():
             if letter in word_letters:
                 print(letter + " ", end = "")
+                correct_guesses += 1
             else:
                 print("_ ", end = "")
     else:
         incorrect_guesses += 1
         hangman_pic += 1
-        print(HANGMANPICS[hangman_pic])
     if incorrect_guesses > 6:
         print("You lost!")
-        print("The word was ", + word)
+        print("The word was ", word)
         done = True
     if correct_guesses == len(word):
         done = True
         print("\nYou won! Want to play again?")
-
-
-# if the guess is correct, add it to the word in the corresponding blank
-# if the incorrect_guesses is greater than 6, tell the user they lost and exit the program
-# if correct_guesses is equal to the length of the word, tell the user they won
-# ask if they want to play again
 
 
