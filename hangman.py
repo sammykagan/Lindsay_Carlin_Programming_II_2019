@@ -82,6 +82,7 @@ for i in range(len(word)):
     print("_ ", end="")
 while not done:
     correct_guesses = 0
+    letters_remaining = len(word)
     print(HANGMANPICS[hangman_pic])
     guess = input("\nYour guess: ")
     if guess.lower() in guessed_letters:
@@ -92,21 +93,19 @@ while not done:
         if guess.lower() not in guessed_letters:
             correct_guesses += 1
         word_letters.append(guess.lower())
-        for letter in word.lower():
-            if letter in word_letters:
-                print(letter + " ", end = "")
-                correct_guesses += 1
-            else:
-                print("_ ", end = "")
     else:
         incorrect_guesses += 1
         hangman_pic += 1
+    for letter in word.lower():
+        if letter in word_letters:
+            print(letter + " ", end="")
+            letters_remaining -= 1
+        else:
+            print("_ ", end="")
     if incorrect_guesses > 6:
         print("You lost!")
         print("The word was ", word)
         done = True
-    if correct_guesses == len(word):
+    if letters_remaining == 0:
         done = True
         print("\nYou won! Want to play again?")
-
-
